@@ -1,0 +1,491 @@
+import { useState } from "react";
+import { analyzeQuant } from "./api/client";
+import type { QuantResponse } from "./types/quant";
+import "./index.css";
+
+const SYMBOLS = [
+  "BTC/USDT",
+  "ETH/USDT",
+  "BNB/USDT",
+  "SOL/USDT",
+  "XRP/USDT",
+  "ADA/USDT",
+  "DOGE/USDT",
+];
+
+const TIMEFRAMES = [
+  "1m",
+  "5m",
+  "15m",
+  "30m",
+  "1h",
+  "2h",
+  "4h",
+  "6h",
+  "8h",
+  "12h",
+  "1d",
+  "1w",
+];
+
+function App() {
+  const [symbol, setSymbol] = useState("BTC/USDT");
+  const [timeframe, setTimeframe] = useState("15m");
+  const [capital, setCapital] = useState("100");
+
+  const [data, setData] = useState<QuantResponse | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function runAnalysis() {
+    setLoading(true);
+    setError("");
+
+    try {
+      const result = await analyzeQuant({
+        symbol,
+        market: "CRYPTO",
+        timeframe,
+        capital: Number(capital),
+        limit: 100,
+        wins: 72,
+        losses: 28,
+      });
+
+      setData(result);
+    } catch (err) {
+      console.error(err);
+      setData(null);
+      setError(
+        "Quant API request failed. Make sure the CAPITAL WISE backend is running."
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const signal = data?.signal;
+  const risk = data?.risk;
+
+  return (
+    <main className="app">
+      <header className="topbar">
+        <div>
+          <div className="brand">CAPITAL WISE</div>
+          <div className="subtitle">
+            Quantitative Trading Analytics
+          </div>
+        </div>
+
+        <button
+          onClick={runAnalysis}
+          disabled={loading}
+        >
+          {loading
+            ? "ANALYZING..."
+            : "RUN QUANT ANALYSIS"}
+        </button>
+      </header>
+
+      <section className="panel">
+        <h2>MARKET CONFIGURATION</h2>
+
+        <div className="profile-grid">
+          <div className="metric">
+            <span>SYMBOL</span>
+
+            <select
+              value={symbol}
+              onChange={(e) =>
+                setSymbol(e.target.value)
+              }
+              disabled={loading}
+            >
+              {SYMBOLS.map((item) => (
+                <option
+                  key={item}
+                  value={item}
+                >
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="metric">
+            <span>TIMEFRAME</span>
+
+            <select
+              value={timeframe}
+              onChange={(e) =>
+                setTimeframe(e.target.value)
+              }
+              disabled={loading}
+            >
+              {TIMEFRAMES.map((item) => (
+                <option
+                  key={item}
+                  value={item}
+                >
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="metric">
+            <span>CAPITAL</span>
+
+            <input
+              type="number"
+              min="1"
+              step="1"
+              value={capital}
+              onChange={(e) =>
+                setCapital(e.target.value)
+              }
+              disabled={loading}
+            />
+          </div>
+        </div>
+
+        <button
+          onClick={runAnalysis}
+          disabled={loading}
+        >
+          {loading
+            ? "LOADING BINANCE DATA..."
+            : "ANALYZE MARKET"}
+        </button>
+      </section>
+
+      {error && (
+        <div className="error">
+          {error}
+        </div>
+      )}
+
+      {!data && !loading && !error && (
+        <section className="welcome">
+          <h1>
+            Quantitative Market Intelligence
+          </h1>
+
+          <p>
+            Select a market and timeframe.
+            CAPITAL WISE will fetch live Binance
+            data and run the quantitative engine.
+          </p>
+        </section>
+      )}
+
+      {loading && (
+        <section className="welcome">
+          <h1>Analyzing Market...</h1>
+
+          <p>
+            Fetching Binance OHLCV and volume data,
+            then running the quantitative engine.
+          </p>
+        </section>
+      )}
+
+      {data && (
+        <>
+          <section className="market-header">
+            <div>
+              <span className="label">
+                SYMBOL
+              </span>
+              <strong>{data.symbol}</strong>
+            </div>
+
+            <div>
+              <span className="label">
+                MARKET
+              </span>
+              <strong>{data.market}</strong>
+            </div>
+
+            <div>
+              <span className="label">
+                TIMEFRAME
+              </span>
+              <strong>{data.timeframe}</strong>
+            </div>
+
+            <div>
+              <span className="label">
+                DATA SOURCE
+              </span>
+              <strong>
+                {data.data_source}
+              </strong>
+            </div>
+          </section>
+
+          <section className="grid">
+            <Card
+              title="LAST PRICE"
+              value={format(data.last_price)}
+              detail="Latest Binance price"
+            />
+
+            <Card
+              title="PROBABILITY"
+              value={`${(
+                data.probability.probability * 100
+              ).toFixed(1)}%`}
+              detail={`${data.probability.wins} wins / ${data.probability.losses} losses`}
+            />
+
+            <Card
+              title="EXPECTED VALUE"
+              value={`${data.expected_value_r.toFixed(
+                2
+              )}R`}
+              detail="Statistical expectancy"
+            />
+
+            <Card
+              title="CONFIDENCE"
+              value={`${(
+                data.state.confidence * 100
+              ).toFixed(1)}%`}
+              detail={data.state.state}
+            />
+          </section>
+
+          <section className="panel">
+            <h2>TRADE DECISION</h2>
+
+            {signal || risk ? (
+              <div className="trade-grid">
+                <Metric
+                  label="DIRECTION"
+                  value={
+                    risk?.direction ??
+                    signal?.direction ??
+                    "N/A"
+                  }
+                />
+
+                <Metric
+                  label="ENTRY"
+                  value={format(
+                    risk?.entry ??
+                      signal?.entry
+                  )}
+                />
+
+                <Metric
+                  label="STOP LOSS"
+                  value={format(
+                    risk?.stop_loss ??
+                      signal?.stop_loss
+                  )}
+                />
+
+                <Metric
+                  label="TAKE PROFIT"
+                  value={format(
+                    risk?.take_profit ??
+                      signal?.take_profit
+                  )}
+                />
+
+                <Metric
+                  label="RISK AMOUNT"
+                  value={format(
+                    risk?.risk_amount
+                  )}
+                />
+
+                <Metric
+                  label="POSITION SIZE"
+                  value={format(
+                    risk?.position_size
+                  )}
+                />
+
+                <Metric
+                  label="NOTIONAL"
+                  value={format(
+                    risk?.notional
+                  )}
+                />
+
+                <Metric
+                  label="RR"
+                  value={format(
+                    risk?.reward_risk
+                  )}
+                />
+              </div>
+            ) : (
+              <div className="neutral">
+                No trade decision returned.
+                <br />
+                Quantitative conditions were not
+                sufficient for a validated trade.
+              </div>
+            )}
+          </section>
+
+          <section className="panel">
+            <h2>VOLUME PROFILE</h2>
+
+            <div className="profile-grid">
+              <Metric
+                label="POC"
+                value={format(
+                  data.profile.poc
+                )}
+              />
+
+              <Metric
+                label="VAH"
+                value={format(
+                  data.profile.vah
+                )}
+              />
+
+              <Metric
+                label="VAL"
+                value={format(
+                  data.profile.val
+                )}
+              />
+
+              <Metric
+                label="TOTAL VOLUME"
+                value={format(
+                  data.profile.total_volume
+                )}
+              />
+
+              <Metric
+                label="WEIGHTED MEAN"
+                value={format(
+                  data.profile.weighted_mean
+                )}
+              />
+
+              <Metric
+                label="STD"
+                value={format(
+                  data.profile.std
+                )}
+              />
+
+              <Metric
+                label="CANDLES"
+                value={data.candles_count}
+              />
+
+              <Metric
+                label="VOLUME SUM"
+                value={format(
+                  data.volume_sum
+                )}
+              />
+            </div>
+          </section>
+
+          <section className="panel">
+            <h2>MARKET DYNAMICS</h2>
+
+            <div className="profile-grid">
+              <Metric
+                label="POC DIRECTION"
+                value={
+                  data.dynamics.poc_direction
+                }
+              />
+
+              <Metric
+                label="VALUE AREA"
+                value={
+                  data.dynamics.value_area_state
+                }
+              />
+
+              <Metric
+                label="BALANCE SCORE"
+                value={
+                  (
+                    data.state.balance_score * 100
+                  ).toFixed(2) + "%"
+                }
+              />
+
+              <Metric
+                label="MIGRATION SCORE"
+                value={
+                  (
+                    data.state.migration_score * 100
+                  ).toFixed(2) + "%"
+                }
+              />
+            </div>
+          </section>
+        </>
+      )}
+    </main>
+  );
+}
+
+function Card({
+  title,
+  value,
+  detail,
+}: {
+  title: string;
+  value: string;
+  detail: string;
+}) {
+  return (
+    <div className="card">
+      <span className="label">
+        {title}
+      </span>
+
+      <strong>{value}</strong>
+
+      <small>{detail}</small>
+    </div>
+  );
+}
+
+function Metric({
+  label,
+  value,
+}: {
+  label: string;
+  value: string | number | undefined;
+}) {
+  return (
+    <div className="metric">
+      <span>{label}</span>
+      <strong>
+        {value ?? "N/A"}
+      </strong>
+    </div>
+  );
+}
+
+function format(
+  value: number | undefined
+) {
+  if (
+    value === undefined ||
+    value === null ||
+    !Number.isFinite(value)
+  ) {
+    return "N/A";
+  }
+
+  return Number(value).toFixed(4);
+}
+
+export default App;

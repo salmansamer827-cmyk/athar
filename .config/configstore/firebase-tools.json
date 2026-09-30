@@ -1,0 +1,56 @@
+{
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1790194006752
+	},
+	"gemini": true,
+	"usage": true,
+	"analytics-uuid": "49656d9c-755d-4ddb-a8a9-69e5852c76da",
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "102997731854083580310",
+		"email": "salmansamer827@gmail.com",
+		"email_verified": true,
+		"at_hash": "V0RYhrTFsf3monbsE44odw",
+		"iat": 1789769496,
+		"exp": 1789773096
+	},
+	"tokens": {
+		"expires_at": 1790262416727,
+		"refresh_token": "1//03x-aFU-FdaqDCgYIARAAGAMSNwF-L9IrO7byTWJgFns5henC7FIBzoG8hW4VtaJB4xwctDA0kIURosDCEwdWMESINEBc821ugSg",
+		"scopes": [],
+		"access_token": "ya29.a0AX07CmvQOk_tMCV557y-nAYeMjEgB4sfx7Stqp7g3iPUHyEsDl7Tnk7LMEG7ogWbvCE9gsZb-TnoAlIb6nQcrjfpWDlTk3jXcTrVllkoHX0IVue3BjAz7AEweA_aJ-qRCKj6vC6nWKLFmYSXr1Lmj5rdV4ByYm-0zc_S_09c_DH_7Fwn31Eyr3qklPUqMMlE7-eQ0vPch5XhMAaCgYKAbwSARQSFQHGX2MioJFB4G5vjVG14Hurtjp6hA0213",
+		"expires_in": 3599,
+		"scope": "https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email openid",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImYxMGY4NzQwNWE5NzljMWRmMzZkZjI2NjA2NzM0ZjMzY2Q4NWMyNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAyOTk3NzMxODU0MDgzNTgwMzEwIiwiZW1haWwiOiJzYWxtYW5zYW1lcjgyN0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IktGS2EwLVVndGVYRVhKWkdGeE1XLWciLCJpYXQiOjE3OTAyNTg4MTgsImV4cCI6MTc5MDI2MjQxOH0.jSNxzfCnWUcL5uVr86Hwnw2mEqnd7lmhZmSiRKj-XnwkPHmrp-LLaHo9aGmQt7bPdWSArxoDrNYFpkb6WYlA7NOQ6OsCCyW3qUHqhwOY9ejI8FhCOaYI3R0np9JTw1a-gQ2VBy08mZyNFcIOKasfMSOSYKMk0X9b8rBgEdayYOKyo_N29770pE9bxphpew34LG37N0eW2kCdrvsDX15Fy8MRFdAvRpBBrjVYWwcM_D-SZp2zgmdlOZmtNn10MB7nGsQ3e5uazX2zwC66ldOiYzzGEQyTsvEvsqDrknre5fu3__yGbkaGJaaq2pKdfXPd-zWrf8GvkoQHdd0VkgPisw"
+	},
+	"activeProjects": {
+		"/data/data/com.termux/files/home/EXCORA": "excora-3bcb0"
+	},
+	"emulator-analytics-clientId": "9af31227-6587-456d-9518-7da355d4679f",
+	"apiEnablementCache": {
+		"excora-3bcb0": {
+			"cloudresourcemanager.googleapis.com": true
+		}
+	},
+	"webconfig": {
+		"excora-3bcb0": {
+			"projectId": "excora-3bcb0",
+			"storageBucket": "excora-3bcb0.firebasestorage.app",
+			"apiKey": "AIzaSyDlWM4WDFi4Ujjl66HJoyl6KyZkqGOD_Qo",
+			"authDomain": "excora-3bcb0.firebaseapp.com",
+			"messagingSenderId": "375019025333",
+			"projectNumber": "375019025333",
+			"version": "2"
+		}
+	}
+}

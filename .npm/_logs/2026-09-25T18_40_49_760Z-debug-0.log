@@ -1,0 +1,67 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/npm
+1 info using npm@11.17.0
+2 info using node@v26.3.1
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/data/data/com.termux/files/home/EXCORA_PRO-BOT/.npmrc
+5 silly config load:file:/data/data/com.termux/files/home/.npmrc
+6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+7 verbose title npm install bcryptjs
+8 verbose argv "install" "bcryptjs"
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2026-09-25T18_40_49_760Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2026-09-25T18_40_49_760Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:1086849024 maxSize:271712256 maxEntrySize:135856128
+14 silly idealTree buildDeps
+15 silly fetch manifest bcryptjs@*
+16 silly packumentCache full:https://registry.npmjs.org/bcryptjs cache-miss
+17 http cache https://registry.npmjs.org/bcryptjs 143ms (cache hit)
+18 silly packumentCache full:https://registry.npmjs.org/bcryptjs set size:80385 disposed:false
+19 silly placeDep ROOT bcryptjs@3.0.3 OK for:  want: *
+20 silly reify moves {}
+21 silly audit bulk request {
+21 silly audit   '@mongodb-js/saslprep': [ '1.5.4' ],
+21 silly audit   '@standard-schema/spec': [ '1.1.0' ],
+21 silly audit   '@types/webidl-conversions': [ '7.0.3' ],
+21 silly audit   '@types/whatwg-url': [ '13.0.0' ],
+21 silly audit   bson: [ '7.3.3' ],
+21 silly audit   'buffer-equal-constant-time': [ '1.0.1' ],
+21 silly audit   'ecdsa-sig-formatter': [ '1.0.11' ],
+21 silly audit   jsonwebtoken: [ '9.0.3' ],
+21 silly audit   jwa: [ '2.0.1' ],
+21 silly audit   jws: [ '4.0.1' ],
+21 silly audit   kareem: [ '3.4.0' ],
+21 silly audit   'lodash.includes': [ '4.3.0' ],
+21 silly audit   'lodash.isboolean': [ '3.0.3' ],
+21 silly audit   'lodash.isinteger': [ '4.0.4' ],
+21 silly audit   'lodash.isnumber': [ '3.0.3' ],
+21 silly audit   'lodash.isplainobject': [ '4.0.6' ],
+21 silly audit   'lodash.isstring': [ '4.0.1' ],
+21 silly audit   'lodash.once': [ '4.1.1' ],
+21 silly audit   'memory-pager': [ '1.5.0' ],
+21 silly audit   mongodb: [ '7.6.0' ],
+21 silly audit   'mongodb-connection-string-url': [ '7.0.2' ],
+21 silly audit   mongoose: [ '9.10.2' ],
+21 silly audit   mpath: [ '0.9.0' ],
+21 silly audit   mquery: [ '6.0.0' ],
+21 silly audit   ms: [ '2.1.3' ],
+21 silly audit   punycode: [ '2.3.1' ],
+21 silly audit   'safe-buffer': [ '5.2.1' ],
+21 silly audit   semver: [ '7.8.5' ],
+21 silly audit   sift: [ '17.1.3' ],
+21 silly audit   'sparse-bitfield': [ '3.0.3' ],
+21 silly audit   tr46: [ '5.1.1' ],
+21 silly audit   'webidl-conversions': [ '7.0.0' ],
+21 silly audit   'whatwg-url': [ '14.2.0' ],
+21 silly audit   bcryptjs: [ '3.0.3' ]
+21 silly audit }
+22 http cache bcryptjs@https://registry.npmjs.org/bcryptjs/-/bcryptjs-3.0.3.tgz 1ms (cache hit)
+23 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 731ms
+24 silly audit report {}
+25 silly ADD node_modules/bcryptjs
+26 verbose cwd /data/data/com.termux/files/home/EXCORA_PRO-BOT
+27 verbose os Linux 5.15.149-android13-8-00008-gbe074b05e5af-ab12096863
+28 verbose node v26.3.1
+29 verbose npm  v11.17.0
+30 verbose exit 0
+31 info ok

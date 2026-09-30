@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EXCORA PRO</title>
+
+    <style>
+
+        body {
+            background: #0b0e11;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .hero p {
+            color: #aaa;
+        }
+
+        .plans {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+            background: #1e2329;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .price {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+
+        .button {
+            display: block;
+            background: #f0b90b;
+            color: #000;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>EXCORA PRO</h1>
+
+        <p>
+            منصة توصيات وتحليلات سوقية
+        </p>
+
+        <p>
+            توصيات فقط — بدون تنفيذ صفقات تلقائي
+        </p>
+
+    </div>
+
+    <div class="plans">
+
+        <div class="card">
+
+            <h2>PRO</h2>
+
+            <div class="price">
+                ${{ pro_price }}
+            </div>
+
+            <p>اشتراك شهري</p>
+
+            <a class="button"
+               href="/subscribe?plan=PRO">
+                اشترك الآن
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>PRO 3 MONTHS</h2>
+
+            <div class="price">
+                ${{ three_price }}
+            </div>
+
+            <p>3 أشهر</p>
+
+            <a class="button"
+               href="/subscribe?plan=PRO_3_MONTHS">
+                اشترك الآن
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>PRO YEARLY</h2>
+
+            <div class="price">
+                ${{ yearly_price }}
+            </div>
+
+            <p>12 شهراً</p>
+
+            <a class="button"
+               href="/subscribe?plan=PRO_YEARLY">
+                اشترك الآن
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

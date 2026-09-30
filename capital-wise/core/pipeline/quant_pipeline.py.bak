@@ -1,0 +1,517 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Optional
+
+import pandas as pd
+
+from core.data.quality import DataQualityEngine
+from core.volume_profile.quant.profile import (
+    QuantProfileEngine,
+)
+from core.volume_profile.quant.dynamics import (
+    ProfileDynamicsEngine,
+)
+from core.volume_profile.quant.state import (
+    MarketStateEngine,
+)
+from core.volume_profile.signal.engine import (
+    VolumeProfileSignalEngine,
+)
+from core.probability.historical import (
+    HistoricalProbabilityEngine,
+)
+from core.risk.engine import RiskEngine
+from core.trade.engine import (
+    FinalTrade,
+    FinalTradeEngine,
+)
+
+
+@dataclass(frozen=True)
+class QuantPipelineResult:
+    symbol: str
+    market: str
+    timeframe: str
+
+    profile: object
+    dynamics: object
+    state: object
+
+    probability: object
+
+    # Statistical probability metrics
+    raw_probability: float
+    adjusted_probability: float
+    probability_uncertainty: float
+
+    # Expected value
+    expected_value_r: float
+    conservative_expected_value_r: float
+
+    signal: Optional[dict]
+    risk: Optional[object]
+
+
+class QuantPipeline:
+    """
+    CAPITAL WISE
+
+    Full quantitative Volume Profile pipeline.
+
+    Data
+      -> Quality
+      -> Profile
+      -> Dynamics
+      -> Market State
+      -> Probability
+      -> Expected Value
+      -> Signal
+      -> Risk
+    """
+
+    def __init__(
+        self,
+        risk_percent: float = 0.01,
+        reward_risk: float = 3.0,
+        value_area: float = 0.70,
+    ):
+
+        self.quality = (
+            DataQualityEngine()
+        )
+
+        self.profile_engine = (
+            QuantProfileEngine(
+                value_area=value_area,
+            )
+        )
+
+        self.dynamics_engine = (
+            ProfileDynamicsEngine()
+        )
+
+        self.state_engine = (
+            MarketStateEngine()
+        )
+
+        self.probability_engine = (
+            HistoricalProbabilityEngine()
+        )
+
+        self.signal_engine = (
+            VolumeProfileSignalEngine()
+        )
+
+        self.risk_engine = RiskEngine(
+            risk_percent=risk_percent,
+            reward_risk=reward_risk,
+        )
+
+    @staticmethod
+    def _to_dataframe(
+        candles,
+    ) -> pd.DataFrame:
+
+        if not candles:
+            raise ValueError(
+                "No candles supplied"
+            )
+
+        rows = []
+
+        for candle in candles:
+
+            rows.append(
+                {
+                    "timestamp": candle.timestamp,
+                    "open": candle.open,
+                    "high": candle.high,
+                    "low": candle.low,
+                    "close": candle.close,
+                    "volume": candle.volume,
+                }
+            )
+
+        df = pd.DataFrame(rows)
+
+        return df
+
+    @staticmethod
+    def _profile_dict(
+        profile,
+    ) -> dict:
+
+        if hasattr(
+            profile,
+            "__dataclass_fields__",
+        ):
+
+            return {
+                name: getattr(
+                    profile,
+                    name,
+                )
+                for name in profile.__dataclass_fields__
+            }
+
+        if isinstance(
+            profile,
+            dict,
+        ):
+
+            return profile
+
+        raise TypeError(
+            "Unsupported profile type"
+        )
+
+    @staticmethod
+    def _dynamics_dict(
+        dynamics,
+    ) -> dict:
+
+        if hasattr(
+            dynamics,
+            "__dataclass_fields__",
+        ):
+
+            return {
+                name: getattr(
+                    dynamics,
+                    name,
+                )
+                for name in dynamics.__dataclass_fields__
+            }
+
+        if isinstance(
+            dynamics,
+            dict,
+        ):
+
+            return dynamics
+
+        raise TypeError(
+            "Unsupported dynamics type"
+        )
+
+    def run(
+        self,
+        candles,
+        symbol: str,
+        market: str,
+        timeframe: str,
+        previous_profile=None,
+        wins: int = 72,
+        losses: int = 28,
+        capital: float = 100.0,
+        entry: Optional[float] = None,
+        stop_price: Optional[float] = None,
+        tick_size: Optional[float] = None,
+    ) -> QuantPipelineResult:
+
+        # -------------------------------------------------
+        # 1. DATA QUALITY
+        # -------------------------------------------------
+
+        report = self.quality.validate(
+            candles
+        )
+
+        if not report.valid:
+            raise ValueError(
+                "Data quality failed: "
+                f"{report.errors}"
+            )
+
+        # -------------------------------------------------
+        # 2. DATAFRAME ADAPTER
+        # -------------------------------------------------
+
+        df = self._to_dataframe(
+            candles
+        )
+
+        # -------------------------------------------------
+        # 3. QUANT VOLUME PROFILE
+        # -------------------------------------------------
+
+        profile = (
+            self.profile_engine.calculate(
+                df,
+                tick_size=tick_size,
+            )
+        )
+
+        # -------------------------------------------------
+        # 4. PROFILE VALUES
+        # -------------------------------------------------
+
+        current_poc = profile.poc
+        current_vah = profile.vah
+        current_val = profile.val
+
+        price_low = float(
+            df["low"].min()
+        )
+
+        price_high = float(
+            df["high"].max()
+        )
+
+        # -------------------------------------------------
+        # 5. PREVIOUS PROFILE
+        # -------------------------------------------------
+
+        if previous_profile is None:
+
+            previous_poc = current_poc
+            previous_poc_k = current_poc
+
+            previous_vah = current_vah
+            previous_val = current_val
+
+        else:
+
+            previous_poc = (
+                previous_profile.poc
+            )
+
+            previous_poc_k = (
+                getattr(
+                    previous_profile,
+                    "previous_poc",
+                    previous_poc,
+                )
+            )
+
+            previous_vah = (
+                previous_profile.vah
+            )
+
+            previous_val = (
+                previous_profile.val
+            )
+
+        # -------------------------------------------------
+        # 6. PROFILE DYNAMICS
+        # -------------------------------------------------
+
+        dynamics = (
+            self.dynamics_engine.calculate(
+                current_poc=current_poc,
+                previous_poc=previous_poc,
+                previous_poc_k=previous_poc_k,
+                current_vah=current_vah,
+                previous_vah=previous_vah,
+                current_val=current_val,
+                previous_val=previous_val,
+                price_low=price_low,
+                price_high=price_high,
+            )
+        )
+
+        # -------------------------------------------------
+        # 7. MARKET STATE
+        # -------------------------------------------------
+
+        state = (
+            self.state_engine.calculate(
+                poc_velocity=dynamics.poc_velocity,
+                value_area_width_change=(
+                    dynamics.value_area_width_change
+                ),
+                value_location=(
+                    dynamics.value_location
+                ),
+                entropy=profile.entropy,
+                concentration=profile.volume_concentration
+            )
+        )
+
+        # -------------------------------------------------
+        # 8. HISTORICAL PROBABILITY
+        # -------------------------------------------------
+
+        # -------------------------------------------------
+        # 8. HISTORICAL PROBABILITY
+        # -------------------------------------------------
+        #
+        # IMPORTANT:
+        # wins/losses must represent real historical
+        # observations. The pipeline must never invent
+        # a 72/28 probability for live market data.
+        #
+        if wins < 0 or losses < 0:
+            raise ValueError(
+                "wins/losses must be >= 0"
+            )
+
+        observations = wins + losses
+
+        if observations < 30:
+            raise ValueError(
+                "Insufficient historical observations "
+                "for statistical probability estimation"
+            )
+
+        probability = (
+            self.probability_engine.calculate(
+                wins=wins,
+                losses=losses,
+                confidence_level=0.95,
+            )
+        )
+
+        # -------------------------------------------------
+        # 9. STATISTICALLY ADJUSTED PROBABILITY
+        # -------------------------------------------------
+
+        raw_probability = float(
+            probability.probability
+        )
+
+        adjusted_probability = float(
+            getattr(
+                probability,
+                "adjusted_probability",
+                probability.lower_bound,
+            )
+        )
+
+        uncertainty = float(
+            getattr(
+                probability,
+                "uncertainty",
+                probability.upper_bound
+                - probability.lower_bound,
+            )
+        )
+
+        # -------------------------------------------------
+        # 10. EXPECTED VALUE
+        # -------------------------------------------------
+
+        reward_r = float(
+            self.risk_engine.reward_risk
+        )
+
+        risk_r = 1.0
+
+        transaction_cost_r = 0.05
+
+        raw_probability = float(
+            probability.probability
+        )
+
+        adjusted_probability = float(
+            getattr(
+                probability,
+                "adjusted_probability",
+                raw_probability,
+            )
+        )
+
+        probability_uncertainty = float(
+            getattr(
+                probability,
+                "uncertainty",
+                0.0,
+            )
+        )
+
+        # Raw statistical EV
+        expected_value_r = (
+            raw_probability
+            * reward_r
+            - (
+                1.0
+                - raw_probability
+            )
+            * risk_r
+        )
+
+        # Conservative EV
+        # Uses statistically adjusted probability
+        # and subtracts estimated transaction cost.
+        conservative_expected_value_r = (
+            adjusted_probability
+            * reward_r
+            - (
+                1.0
+                - adjusted_probability
+            )
+            * risk_r
+            - transaction_cost_r
+        )
+
+        # -------------------------------------------------
+        # 10. ENTRY
+        # -------------------------------------------------
+
+        if entry is None:
+
+            entry = float(
+                df["close"].iloc[-1]
+            )
+
+        # -------------------------------------------------
+        # 11. SIGNAL
+        # -------------------------------------------------
+
+        signal = (
+            self.signal_engine.evaluate(
+                profile=self._profile_dict(
+                    profile
+                ),
+                dynamics=self._dynamics_dict(
+                    dynamics
+                ),
+                probability=raw_probability,
+                adjusted_probability=adjusted_probability,
+                uncertainty=probability_uncertainty,
+                ev_r=conservative_expected_value_r,
+                entry=entry,
+            )
+        )
+
+        # -------------------------------------------------
+        # 12. RISK
+        # -------------------------------------------------
+
+        risk = None
+
+        if (
+            signal is not None
+            and stop_price is not None
+        ):
+
+            risk = (
+                self.risk_engine.calculate(
+                    capital=capital,
+                    entry_price=entry,
+                    stop_price=stop_price,
+                )
+            )
+
+        return QuantPipelineResult(
+            symbol=symbol,
+            market=market,
+            timeframe=timeframe,
+
+            profile=profile,
+            dynamics=dynamics,
+            state=state,
+
+            probability=probability,
+            expected_value_r=(
+                expected_value_r
+            ),
+
+            conservative_expected_value_r=(
+                conservative_expected_value_r
+            ),
+
+            signal=signal,
+            risk=risk,
+        )

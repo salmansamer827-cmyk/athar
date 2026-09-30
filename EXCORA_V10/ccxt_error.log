@@ -1,0 +1,357 @@
+Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+Collecting ccxt
+  Obtaining dependency information for ccxt from https://files.pythonhosted.org/packages/9e/9b/c47bb2d78314ac3480d3505e872cb8cf157a5c888d0338d9b3f4ea9daa54/ccxt-4.5.71-py3-none-any.whl.metadata
+  Using cached ccxt-4.5.71-py3-none-any.whl.metadata (154 kB)
+Collecting certifi==2026.6.17 (from ccxt)
+  Obtaining dependency information for certifi==2026.6.17 from https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl.metadata
+  Using cached certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+Collecting requests<3,>=2.32 (from ccxt)
+  Obtaining dependency information for requests<3,>=2.32 from https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl.metadata
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting cryptography<51,>=49 (from ccxt)
+  Using cached cryptography-50.0.0-cp313-abi3-android_30_arm64_v8a.whl
+Collecting typing_extensions==4.16.0 (from ccxt)
+  Obtaining dependency information for typing_extensions==4.16.0 from https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting aiohttp<3.15,>=3.14 (from ccxt)
+  Obtaining dependency information for aiohttp<3.15,>=3.14 from https://files.pythonhosted.org/packages/57/be/5afd201cc0ab139029aadb75392efe85a293403d9dd3a3226161c21ce00c/aiohttp-3.14.3-cp313-cp313-android_21_arm64_v8a.whl.metadata
+  Using cached aiohttp-3.14.3-cp313-cp313-android_21_arm64_v8a.whl.metadata (8.3 kB)
+Collecting yarl<2,>=1.20 (from ccxt)
+  Obtaining dependency information for yarl<2,>=1.20 from https://files.pythonhosted.org/packages/61/02/962c1cbfc401a30c1d034dc67ff395f64b52302c6d62de556c1fca99acc0/yarl-1.24.5-py3-none-any.whl.metadata
+  Using cached yarl-1.24.5-py3-none-any.whl.metadata (103 kB)
+Collecting aiohttp-fast-zlib==0.3.0 (from ccxt)
+  Obtaining dependency information for aiohttp-fast-zlib==0.3.0 from https://files.pythonhosted.org/packages/b7/11/ea9ecbcd6cf68c5de690fd39b66341405ab091aa0c3598277e687aa65901/aiohttp_fast_zlib-0.3.0-py3-none-any.whl.metadata
+  Using cached aiohttp_fast_zlib-0.3.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting zlib-ng==1.0.0 (from ccxt)
+  Using cached zlib_ng-1.0.0.tar.gz (5.8 MB)
+  Installing build dependencies: started
+  Running command installing build dependencies for zlib-ng
+  Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+  Collecting setuptools>=77
+    Obtaining dependency information for setuptools>=77 from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting setuptools-scm>=8
+    Obtaining dependency information for setuptools-scm>=8 from https://files.pythonhosted.org/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl.metadata
+    Using cached setuptools_scm-10.2.1-py3-none-any.whl.metadata (6.7 kB)
+  Collecting vcs-versioning<3,>=2.0.0.dev0 (from setuptools-scm>=8)
+    Obtaining dependency information for vcs-versioning<3,>=2.0.0.dev0 from https://files.pythonhosted.org/packages/7a/26/7d2b738d2b7e177e729932dbdf1ebfa57c98846777a87a864130cc1e196b/vcs_versioning-2.2.4-py3-none-any.whl.metadata
+    Using cached vcs_versioning-2.2.4-py3-none-any.whl.metadata (1.7 kB)
+  Collecting packaging>=20 (from setuptools-scm>=8)
+    Obtaining dependency information for packaging>=20 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached setuptools_scm-10.2.1-py3-none-any.whl (29 kB)
+  Using cached vcs_versioning-2.2.4-py3-none-any.whl (109 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Installing collected packages: setuptools, packaging, vcs-versioning, setuptools-scm
+    Creating /data/data/com.termux/files/usr/tmp/pip-build-env-z1p0p6i6/overlay/bin
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-z1p0p6i6/overlay/bin/vcs-versioning to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-z1p0p6i6/overlay/bin/setuptools-scm to 755
+
+  Successfully installed packaging-26.3 setuptools-84.0.0 setuptools-scm-10.2.1 vcs-versioning-2.2.4
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  running egg_info
+  writing src/zlib_ng.egg-info/PKG-INFO
+  writing dependency_links to src/zlib_ng.egg-info/dependency_links.txt
+  writing top-level names to src/zlib_ng.egg-info/top_level.txt
+  listing git files failed - pretending there aren't any
+  reading manifest file 'src/zlib_ng.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  no previously-included directories found matching 'docs'
+  no previously-included directories found matching 'benchmark_scripts'
+  no previously-included directories found matching '.github'
+  warning: no previously-included files found matching 'requirements-docs.txt'
+  warning: no previously-included files found matching 'codecov.yml'
+  warning: no previously-included files found matching '.readthedocs.yml'
+  warning: no previously-included files found matching '.git*'
+  adding license file 'LICENSE'
+  writing manifest file 'src/zlib_ng.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  running dist_info
+  creating /data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info
+  writing /data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/PKG-INFO
+  writing dependency_links to /data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/dependency_links.txt
+  writing top-level names to /data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/top_level.txt
+  writing manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/SOURCES.txt'
+  listing git files failed - pretending there aren't any
+  reading manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  no previously-included directories found matching 'docs'
+  no previously-included directories found matching 'benchmark_scripts'
+  no previously-included directories found matching '.github'
+  warning: no previously-included files found matching 'requirements-docs.txt'
+  warning: no previously-included files found matching 'codecov.yml'
+  warning: no previously-included files found matching '.readthedocs.yml'
+  warning: no previously-included files found matching '.git*'
+  adding license file 'LICENSE'
+  writing manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng.egg-info/SOURCES.txt'
+  creating '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-lgeqpb2m/zlib_ng-1.0.0.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting uvloop==0.22.1 (from ccxt)
+  Using cached uvloop-0.22.1.tar.gz (2.4 MB)
+  Installing build dependencies: started
+  Running command installing build dependencies for uvloop
+  Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+  Collecting setuptools>=60
+    Obtaining dependency information for setuptools>=60 from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting wheel
+    Obtaining dependency information for wheel from https://files.pythonhosted.org/packages/87/1b/9e33c09813d65e248f7f773119148a612516a4bea93e9c6f545f78455b7c/wheel-0.47.0-py3-none-any.whl.metadata
+    Using cached wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)
+  Collecting Cython~=3.1
+    Obtaining dependency information for Cython~=3.1 from https://files.pythonhosted.org/packages/00/ec/e61deec9bcfbb0e1b36f8b5ba75cb44644419b4bfd0fdd666bffd21d9579/cython-3.2.9-py3-none-any.whl.metadata
+    Using cached cython-3.2.9-py3-none-any.whl.metadata (4.4 kB)
+  Collecting packaging>=24.0 (from wheel)
+    Obtaining dependency information for packaging>=24.0 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Using cached cython-3.2.9-py3-none-any.whl (1.3 MB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached wheel-0.47.0-py3-none-any.whl (32 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Installing collected packages: setuptools, packaging, Cython, wheel
+    Creating /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/bin
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/bin/cygdb to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/bin/cython to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/bin/cythonize to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/bin/wheel to 755
+
+  Successfully installed Cython-3.2.9 packaging-26.3 setuptools-84.0.0 wheel-0.47.0
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+          License :: OSI Approved :: MIT License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+          License :: OSI Approved :: MIT License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running egg_info
+  writing uvloop.egg-info/PKG-INFO
+  writing dependency_links to uvloop.egg-info/dependency_links.txt
+  writing requirements to uvloop.egg-info/requires.txt
+  writing top-level names to uvloop.egg-info/top_level.txt
+  reading manifest file 'uvloop.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/.git'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/docs'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/img'
+  adding license file 'LICENSE-APACHE'
+  adding license file 'LICENSE-MIT'
+  writing manifest file 'uvloop.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+          License :: OSI Approved :: MIT License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /data/data/com.termux/files/usr/tmp/pip-build-env-ydqk8wsa/overlay/lib/python3.13/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+          License :: OSI Approved :: MIT License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running dist_info
+  creating /data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info
+  writing /data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/PKG-INFO
+  writing dependency_links to /data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/dependency_links.txt
+  writing requirements to /data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/requires.txt
+  writing top-level names to /data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/top_level.txt
+  writing manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/SOURCES.txt'
+  reading manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/.git'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/docs'
+  warning: no previously-included files matching '*' found under directory 'vendor/libuv/img'
+  adding license file 'LICENSE-APACHE'
+  adding license file 'LICENSE-MIT'
+  writing manifest file '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop.egg-info/SOURCES.txt'
+  creating '/data/data/com.termux/files/usr/tmp/pip-modern-metadata-c5sxixmi/uvloop-0.22.1.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting orjson==3.11.9 (from ccxt)
+  Using cached orjson-3.11.9.tar.gz (5.6 MB)
+  Installing build dependencies: started
+  Running command installing build dependencies for orjson
+  Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+  Collecting maturin<2,>=1
+    Using cached maturin-1.14.1-cp313-cp313-android_30_arm64_v8a.whl
+  Installing collected packages: maturin
+  Successfully installed maturin-1.14.1
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  📦 Including license file `LICENSE-APACHE`
+  📦 Including license file `LICENSE-MIT`
+  📦 Including license file `LICENSE-MPL-2.0`
+  🍹 Building a mixed python/rust project
+  🐍 Found CPython 3.13 at /data/data/com.termux/files/home/EXCORA_V10/venv/bin/python
+  🔗 Found pyo3-ffi bindings
+  orjson-3.11.9.dist-info
+  Checking for Rust toolchain....
+  Running `maturin pep517 write-dist-info --metadata-directory /data/data/com.termux/files/usr/tmp/pip-modern-metadata-2r_7k9yf --interpreter /data/data/com.termux/files/home/EXCORA_V10/venv/bin/python`
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting coincurve==21.0.0 (from ccxt)
+  Using cached coincurve-21.0.0.tar.gz (128 kB)
+  Installing build dependencies: started
+  Running command installing build dependencies for coincurve
+  Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+  Ignoring pkgconf: markers 'sys_platform == "win32"' don't match your environment
+  Collecting hatchling>=1.24.2
+    Obtaining dependency information for hatchling>=1.24.2 from https://files.pythonhosted.org/packages/64/e2/2c0af0a52d16be74a4f194564fcdc417521ed863e9b65e4bc9052dacba6f/hatchling-1.31.0-py3-none-any.whl.metadata
+    Using cached hatchling-1.31.0-py3-none-any.whl.metadata (3.8 kB)
+  Collecting cffi
+    Using cached cffi-2.1.1-cp313-cp313-android_30_arm64_v8a.whl
+  Collecting setuptools
+    Obtaining dependency information for setuptools from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting scikit-build-core>=0.9.0
+    Obtaining dependency information for scikit-build-core>=0.9.0 from https://files.pythonhosted.org/packages/b7/b0/7ad8fa9aebb0835b2e20afebf1483cbe175d1612fe01e85042ce9ced8755/scikit_build_core-1.0.3-py3-none-any.whl.metadata
+    Using cached scikit_build_core-1.0.3-py3-none-any.whl.metadata (19 kB)
+  Collecting packaging>=24.2 (from hatchling>=1.24.2)
+    Obtaining dependency information for packaging>=24.2 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Collecting pathspec>=0.10.1 (from hatchling>=1.24.2)
+    Obtaining dependency information for pathspec>=0.10.1 from https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl.metadata
+    Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+  Collecting pluggy>=1.0.0 (from hatchling>=1.24.2)
+    Obtaining dependency information for pluggy>=1.0.0 from https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+    Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+  Collecting trove-classifiers (from hatchling>=1.24.2)
+    Obtaining dependency information for trove-classifiers from https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl.metadata
+    Using cached trove_classifiers-2026.6.1.19-py3-none-any.whl.metadata (2.3 kB)
+  Collecting pycparser (from cffi)
+    Obtaining dependency information for pycparser from https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl.metadata
+    Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+  Using cached hatchling-1.31.0-py3-none-any.whl (77 kB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached scikit_build_core-1.0.3-py3-none-any.whl (278 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+  Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+  Using cached trove_classifiers-2026.6.1.19-py3-none-any.whl (14 kB)
+  Installing collected packages: trove-classifiers, setuptools, pycparser, pluggy, pathspec, packaging, scikit-build-core, hatchling, cffi
+    Creating /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin/trove-classifiers to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin/scikit-build to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin/scikit-build-core to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin/hatchling to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/bin/cffi-gen-src to 755
+
+  Successfully installed cffi-2.1.1 hatchling-1.31.0 packaging-26.3 pathspec-1.1.1 pluggy-1.6.0 pycparser-3.0 scikit-build-core-1.0.3 setuptools-84.0.0 trove-classifiers-2026.6.1.19
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  Traceback (most recent call last):
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+      main()
+      ~~~~^^
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+      json_out["return_val"] = hook(**hook_input["kwargs"])
+                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 178, in prepare_metadata_for_build_wheel
+      whl_basename = backend.build_wheel(metadata_directory, config_settings)
+    File "/data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/lib/python3.13/site-packages/hatchling/build.py", line 58, in build_wheel
+      return os.path.basename(next(builder.build(directory=wheel_directory, versions=["standard"])))
+                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/usr/tmp/pip-build-env-w5f1ptyu/overlay/lib/python3.13/site-packages/hatchling/builders/plugin/interface.py", line 149, in build
+      build_hook.initialize(version, build_data)
+      ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/usr/tmp/pip-install-mz5jvmco/coincurve_91efb54552494031aada5aed8c1101d0/hatch_build.py", line 34, in initialize
+      raise RuntimeError(message)
+  RuntimeError: Expected exactly one LICENSE file in cffi distribution, got 0
+  error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> No available output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  full command: /data/data/com.termux/files/home/EXCORA_V10/venv/bin/python /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py prepare_metadata_for_build_wheel /data/data/com.termux/files/usr/tmp/tmpis2j3p06
+  cwd: /data/data/com.termux/files/usr/tmp/pip-install-mz5jvmco/coincurve_91efb54552494031aada5aed8c1101d0
+  Preparing metadata (pyproject.toml): finished with status 'error'
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> coincurve
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.

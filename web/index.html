@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثر | معرض أعمال الهوية البصرية والتصميم</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">أ</div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-wider text-white">أثر <span class="text-amber-500 font-semibold">ATHAR</span></h1>
+                    <span class="text-xs text-slate-400 block font-normal">هوية بصرية وتصميم إبداعي</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+                <a href="#projects" class="hover:text-amber-400 transition">الأعمال</a>
+                <a href="#about" class="hover:text-amber-400 transition">عن الهوية</a>
+                <a href="#contact" class="hover:text-amber-400 transition">تواصل معي</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-6 text-center max-w-4xl mx-auto">
+        <span class="bg-amber-500/10 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full border border-amber-500/20">منصة أعمال سامر سلمان</span>
+        <h2 class="text-3xl md:text-5xl font-black mt-6 leading-tight">نصنع هويات بصرية تترك أثراً خالداً</h2>
+        <p class="text-slate-400 mt-4 text-base md:text-lg">نحول الأفكار إلى علامات تجارية متكاملة تنبض بالحياة، دقيقة التفاصيل، وعالية التأثير.</p>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <main id="projects" class="max-w-7xl mx-auto px-6 py-8">
+        <h3 class="text-2xl font-bold mb-8 border-r-4 border-amber-500 pr-4">أحدث مشاريع الهوية البصرية</h3>
+        
+        <!-- Grid container for projects fetched from API -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Loading state skeleton -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 animate-pulse">
+                <div class="bg-slate-800 h-48 rounded-xl mb-4"></div>
+                <div class="h-6 bg-slate-800 rounded w-3/4 mb-2"></div>
+                <div class="h-4 bg-slate-800 rounded w-1/2"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-3xl mx-auto px-6 py-16 border-t border-slate-900 mt-16">
+        <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl backdrop-blur">
+            <h3 class="text-2xl font-bold mb-2 text-center">لنبسّط هويتك القادمة معاً</h3>
+            <p class="text-slate-400 text-center text-sm mb-6">أرسل تفاصيل مشروعك وسنتواصل معك قريباً.</p>
+            
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-300">الاسم الكريم</label>
+                    <input type="text" id="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-300">البريد الإلكتروني</label>
+                    <input type="email" id="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-300">رسالتك أو تفاصيل المشروع</label>
+                    <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3.5 rounded-xl transition shadow-lg shadow-amber-500/10">إرسال الرسالة</button>
+            </form>
+            <div id="form-response" class="mt-4 text-center text-sm hidden"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-950 text-center py-8 text-slate-500 text-sm">
+        <p>&copy; 2026 منصة أثر للهوية البصرية - سامر سلمان. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const API_URL = "http://127.0.0.1:8000"\;
+
+        async function fetchProjects() {
+            try {
+                const response = await fetch(`${API_URL}/projects`);
+                const projects = await response.json();
+                const grid = document.getElementById('projects-grid');
+                
+                if (projects.length === 0) {
+                    grid.innerHTML = `<p class="col-span-full text-center text-slate-500 py-10">لا توجد مشاريع مضافة حالياً. يمكنك إضافة مشاريع عبر لوحة التحكم.</p>`;
+                    return;
+                }
+
+                grid.innerHTML = projects.map(p => `
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition group">
+                        <div class="h-52 bg-slate-800 overflow-hidden relative">
+                            <img src="${p.cover_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800'}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-slate-800">${p.category}</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-1">${p.title}</h4>
+                            <p class="text-amber-500 text-xs font-medium mb-3">${p.subtitle}</p>
+                            <p class="text-slate-400 text-sm line-clamp-2">${p.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+                document.getElementById('projects-grid').innerHTML = `<p class="col-span-full text-center text-red-500 py-10">تعذر الاتصال بالخادم لجلب المشاريع.</p>`;
+            }
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const responseDiv = document.getElementById('form-response');
+
+            try {
+                const res = await fetch(`${API_URL}/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (res.ok) {
+                    responseDiv.textContent = "تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.";
+                    responseDiv.className = "mt-4 text-center text-sm text-emerald-400";
+                    document.getElementById('contact-form').reset();
+                } else {
+                    throw new Error("Failed to send");
+                }
+            } catch (err) {
+                responseDiv.textContent = "حدث خطأ أثناء الإرسال. تأكد من تشغيل الخادم.";
+                responseDiv.className = "mt-4 text-center text-sm text-red-400";
+            }
+        });
+
+        fetchProjects();
+    </script>
+</body>
+</html>

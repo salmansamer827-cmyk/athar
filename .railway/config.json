@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "/data/data/com.termux/files/home/EXCORA": {
+      "projectPath": "/data/data/com.termux/files/home/EXCORA",
+      "name": "perceptive-comfort",
+      "project": "babd99b0-8492-4d71-b9ba-e8244daf416a",
+      "environment": "36f003d9-d857-45f7-acfb-76571f270e91",
+      "environmentName": "production",
+      "service": null
+    },
+    "/data/data/com.termux/files/home/EXCORA_PRO-BOT": {
+      "projectPath": "/data/data/com.termux/files/home/EXCORA_PRO-BOT",
+      "name": "perceptive-comfort",
+      "project": "babd99b0-8492-4d71-b9ba-e8244daf416a",
+      "environment": "36f003d9-d857-45f7-acfb-76571f270e91",
+      "environmentName": "production",
+      "service": "dc521478-84fd-49c1-99e7-8ab36b07a8eb"
+    }
+  },
+  "user": {
+    "id": "42257d9c-7706-4dcd-810f-b46e740a8415",
+    "token": null,
+    "accessToken": "cvPQDq-XFW9WJ0KwytvOQ2QzSrdusZ0_ydolOu88V9w",
+    "refreshToken": "iFVk2BecLrzKJ3ZKn0gsXJmsqhqSJS0gwTyaW_pIei4",
+    "tokenExpiresAt": 1789728895
+  },
+  "editor": null,
+  "linkedFunctions": null,
+  "sandboxes": null,
+  "activeSandbox": null,
+  "sandboxTemplates": null
+}

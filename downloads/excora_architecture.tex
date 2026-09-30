@@ -1,0 +1,43 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[arabic,english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=25mm}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{primarycolor}{RGB}{20,35,60}
+\definecolor{accentcolor}{RGB}{0,150,136}
+
+\title{\textbf{EXCORA Quantitative Trading System Architecture}}
+\author{System Architecture Documentation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document outlines the architectural specifications and mathematical modeling used in the EXCORA automated quantitative trading platform. The system integrates advanced market structure analysis, including Smart Money Concepts (SMC), Volume Profile, VWAP, and Fair Value Gaps (FVG).
+
+\section{Core Mathematical Formulations}
+
+\subsection{Volume Weighted Average Price (VWAP)}
+The VWAP is calculated as the benchmark average price of an asset weighted by volume over a specific time horizon:
+\begin{equation}
+\text{VWAP} = \frac{\sum_{i} (P_i \cdot V_i)}{\sum_{i} V_i}
+\end{equation}
+where $P_i$ represents the typical price at interval $i$ and $V_i$ represents the volume at interval $i$.
+
+\subsection{Fair Value Gap (FVG) Detection}
+A Fair Value Gap represents an imbalance in price delivery characterized by a three-candle formation where the high of the first candle does not overlap with the low of the third candle in a bullish expansion:
+\begin{equation}
+\text{FVG}_{\text{bullish}} = \text{Low}_{k+2} > \text{High}_{k}
+\end{equation}
+
+\section{Risk Management \& Portfolio Allocation}
+Structured Dollar-Cost Averaging (DCA) and dynamic multi-tier capital allocation models are implemented to optimize risk-adjusted returns across volatile market conditions.
+
+\end{document}

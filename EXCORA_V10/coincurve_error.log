@@ -1,0 +1,91 @@
+Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+Collecting coincurve
+  Downloading coincurve-21.0.0.tar.gz (128 kB)
+  Installing build dependencies: started
+  Running command installing build dependencies for coincurve
+  Using pip 26.2.1 from /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip (python 3.13)
+  Ignoring pkgconf: markers 'sys_platform == "win32"' don't match your environment
+  Collecting hatchling>=1.24.2
+    Obtaining dependency information for hatchling>=1.24.2 from https://files.pythonhosted.org/packages/64/e2/2c0af0a52d16be74a4f194564fcdc417521ed863e9b65e4bc9052dacba6f/hatchling-1.31.0-py3-none-any.whl.metadata
+    Using cached hatchling-1.31.0-py3-none-any.whl.metadata (3.8 kB)
+  Collecting cffi
+    Using cached cffi-2.1.1-cp313-cp313-android_30_arm64_v8a.whl
+  Collecting setuptools
+    Obtaining dependency information for setuptools from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting scikit-build-core>=0.9.0
+    Obtaining dependency information for scikit-build-core>=0.9.0 from https://files.pythonhosted.org/packages/b7/b0/7ad8fa9aebb0835b2e20afebf1483cbe175d1612fe01e85042ce9ced8755/scikit_build_core-1.0.3-py3-none-any.whl.metadata
+    Using cached scikit_build_core-1.0.3-py3-none-any.whl.metadata (19 kB)
+  Collecting packaging>=24.2 (from hatchling>=1.24.2)
+    Obtaining dependency information for packaging>=24.2 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Collecting pathspec>=0.10.1 (from hatchling>=1.24.2)
+    Obtaining dependency information for pathspec>=0.10.1 from https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl.metadata
+    Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+  Collecting pluggy>=1.0.0 (from hatchling>=1.24.2)
+    Obtaining dependency information for pluggy>=1.0.0 from https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+    Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+  Collecting trove-classifiers (from hatchling>=1.24.2)
+    Obtaining dependency information for trove-classifiers from https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl.metadata
+    Using cached trove_classifiers-2026.6.1.19-py3-none-any.whl.metadata (2.3 kB)
+  Collecting pycparser (from cffi)
+    Obtaining dependency information for pycparser from https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl.metadata
+    Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+  Using cached hatchling-1.31.0-py3-none-any.whl (77 kB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached scikit_build_core-1.0.3-py3-none-any.whl (278 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+  Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+  Using cached trove_classifiers-2026.6.1.19-py3-none-any.whl (14 kB)
+  Installing collected packages: trove-classifiers, setuptools, pycparser, pluggy, pathspec, packaging, scikit-build-core, hatchling, cffi
+    Creating /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin/trove-classifiers to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin/scikit-build to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin/scikit-build-core to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin/hatchling to 755
+    changing mode of /data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/bin/cffi-gen-src to 755
+
+  Successfully installed cffi-2.1.1 hatchling-1.31.0 packaging-26.3 pathspec-1.1.1 pluggy-1.6.0 pycparser-3.0 scikit-build-core-1.0.3 setuptools-84.0.0 trove-classifiers-2026.6.1.19
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  Traceback (most recent call last):
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+      main()
+      ~~~~^^
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+      json_out["return_val"] = hook(**hook_input["kwargs"])
+                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 178, in prepare_metadata_for_build_wheel
+      whl_basename = backend.build_wheel(metadata_directory, config_settings)
+    File "/data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/lib/python3.13/site-packages/hatchling/build.py", line 58, in build_wheel
+      return os.path.basename(next(builder.build(directory=wheel_directory, versions=["standard"])))
+                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/usr/tmp/pip-build-env-ub56y1b6/overlay/lib/python3.13/site-packages/hatchling/builders/plugin/interface.py", line 149, in build
+      build_hook.initialize(version, build_data)
+      ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+    File "/data/data/com.termux/files/usr/tmp/pip-install-pn7m1541/coincurve_74fc7fc4325e43dfa52ac356e5798992/hatch_build.py", line 34, in initialize
+      raise RuntimeError(message)
+  RuntimeError: Expected exactly one LICENSE file in cffi distribution, got 0
+  error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> No available output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  full command: /data/data/com.termux/files/home/EXCORA_V10/venv/bin/python /data/data/com.termux/files/home/EXCORA_V10/venv/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py prepare_metadata_for_build_wheel /data/data/com.termux/files/usr/tmp/tmp8xjcik47
+  cwd: /data/data/com.termux/files/usr/tmp/pip-install-pn7m1541/coincurve_74fc7fc4325e43dfa52ac356e5798992
+  Preparing metadata (pyproject.toml): finished with status 'error'
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> coincurve
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
